@@ -5,9 +5,12 @@ require 'inc/Newsletter.class.php';
 if (!empty($_POST)) {
     $email = $_POST['signup-email'];
 
-    Newsletter::register($email);
+    //Newsletter::register($email);
 }
+
 ?>
+
+
 
 <!DOCTYPE html>
 <head>
@@ -40,7 +43,24 @@ if (!empty($_POST)) {
 
 <body id="page-top">
 
+
+
+ <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h1 class="section-heading">TITLE</h1>
+                    <hr class="light">
+                    <p class="text-faded"> <?php echo register($email); ?> </p>
+                    <a href="http://ec2-52-89-254-240.us-west-2.compute.amazonaws.com/" class="btn btn-default btn-xl">Return to HOME</a>
+                </div>
+            </div>
+        </div>
+    </section>
 	
+
+
+
       <div class="container" id="footer">
           <hr>
               <div class="text-center center-block">
@@ -70,6 +90,3 @@ if (!empty($_POST)) {
 </body>
 
 </html>
-
-
-
