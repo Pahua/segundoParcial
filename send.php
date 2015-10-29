@@ -8,6 +8,10 @@ if (!empty($_POST)) {
     //Newsletter::register($email);
 }
 
+///
+
+///
+
 ?>
 
 
@@ -49,15 +53,17 @@ if (!empty($_POST)) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h1 class="section-heading">TITLE</h1>
+                    <h1 class="section-heading">  </h1>
                     <hr class="light">
-                    <p class="text-faded"> <?php echo register($email); ?> </p>
+                    <p class="text-faded"> <?php echo Newsletter::register($email); ?> </p>
                     <a href="http://ec2-52-89-254-240.us-west-2.compute.amazonaws.com/" class="btn btn-default btn-xl">Return to HOME</a>
+
+                    <a href="http://ec2-52-89-254-240.us-west-2.compute.amazonaws.com/regs.php" class="btn btn-default btn-xl">See registered users</a>
                 </div>
             </div>
         </div>
     </section>
-	
+    
 
 
 
