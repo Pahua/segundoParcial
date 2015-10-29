@@ -3,6 +3,7 @@ class Newsletter
 {
     private static $email;
     private static $datetime = null;
+    private static $titleRequest;
 
     private static $valid = true;
 
@@ -14,6 +15,7 @@ class Newsletter
         if (!empty($_POST)) {
             self::$email    = $_POST['signup-email'];
             self::$datetime = date('Y-m-d H:i:s');
+            self::$titleRequest="";
 
             if (empty(self::$email)) {
                 $status  = "error";
@@ -42,22 +44,27 @@ class Newsletter
                     if ($q) {
                         $status  = "success";
                         $message = "You have been successfully subscribed! Prepare to receive the latest news on Dia de Muertos";
+                         $titleRequest="SUCCESS!!";
                     } else {
                         $status  = "error";
                         $message = "An error occurred, please try again";
+                        $titleRequest="SORRY!";
                     }
                 } else {
                     $status  = "error";
                     $message = "This email is already subscribed, try another address!";
+                    $titleRequest="UPS!!!";
                 }
             }
 
             $data = array(
+                'title' => $titleRequest,
                 'status'  => $status,
                 'message' => $message
             );
 
             echo json_encode($data);
+            
 
             Database::disconnect();
         }
